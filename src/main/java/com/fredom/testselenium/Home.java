@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ztld.testselenium;
+package com.fredom.testselenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,8 +18,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class Home {
 
     public static void main(String[] args) throws InterruptedException {
-
-        // testGoogleSearch();
+      
+        //Mozilla works better than Chrome
         testMozilla();
 
     }
