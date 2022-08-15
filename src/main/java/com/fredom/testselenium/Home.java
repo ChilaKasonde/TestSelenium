@@ -18,9 +18,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class Home {
 
     public static void main(String[] args) throws InterruptedException {
-      
+
         //Mozilla works better than Chrome
-        testMozilla();
+        testelementByID();
 
     }
 
@@ -101,6 +101,58 @@ public class Home {
 
         driver.quit();
 
+    }
+
+    public static void testGetTitle() {
+        // declaration and instantiation of objects/variables
+        System.setProperty("webdriver.gecko.driver", "C:\\selenium\\geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+        //comment the above 2 lines and uncomment below 2 lines to use Chrome
+
+        String baseUrl = "http://demo.guru99.com/test/newtours/";
+        String expectedTitle = "Welcome: Mercury Tours";
+        String actualTitle = "";
+
+        // launch Fire fox and direct it to the Base URL
+        driver.get(baseUrl);
+
+        // get the actual value of the title
+        actualTitle = driver.getTitle();
+
+        /*
+         * compare the actual title of the page with the expected one and print
+         * the result as "Passed" or "Failed"
+         */
+        if (actualTitle.contentEquals(expectedTitle)) {
+            System.out.println("Test Passed!");
+        } else {
+            System.out.println("Test Failed");
+        }
+
+        //close Fire fox
+        driver.close();
+    }
+
+    public static void testelementByID() {
+        System.setProperty("webdriver.gecko.driver", "C:\\selenium\\geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+        String baseUrl = "http://www.facebook.com";
+        String tagName = "";
+        String expectedTitle = "input";
+
+        driver.get(baseUrl);
+        //tag name describes what kind of html tag something 
+        tagName = driver.findElement(By.id("email")).getTagName();
+        System.out.println("TAG name:" + tagName);
+
+        if (tagName.contentEquals(expectedTitle)) {
+            System.out.println("Test Passed!");
+        } else {
+            System.out.println("Test Failed");
+        }
+
+        driver.close();
+        System.exit(0);
     }
 
 }
