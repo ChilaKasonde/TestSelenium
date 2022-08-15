@@ -20,7 +20,7 @@ public class Home {
     public static void main(String[] args) throws InterruptedException {
 
         //Mozilla works better than Chrome
-        testelementByID();
+        testClickButtonByValue();
 
     }
 
@@ -158,6 +158,33 @@ public class Home {
         driver.close();
         //close application
         System.exit(0);
+    }
+
+    public static void testFrameAccess() {
+        System.setProperty("webdriver.gecko.driver", "C:\\selenium\\geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http://demo.guru99.com/selenium/deprecated.html");
+        driver.switchTo().frame("classFrame");
+        driver.findElement(By.linkText("Deprecated")).click();
+        driver.close();
+    }
+
+    public static void testClickButtonByValue() {
+
+        System.setProperty("webdriver.gecko.driver", "C:\\selenium\\geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+        String alertMessage = "";
+
+        driver.get("http://jsbin.com/usidix/1");
+        //get element by value
+        driver.findElement(By.cssSelector("input[value=\"Go!\"]")).click();
+        //get element text
+        alertMessage = driver.switchTo().alert().getText();
+        driver.switchTo().alert().accept();
+        //print text
+        System.out.println(alertMessage);
+        driver.quit();
+
     }
 
 }
