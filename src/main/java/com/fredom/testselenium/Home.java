@@ -32,6 +32,7 @@ public class Home {
             String baseUrl = "https://www.google.com/";
 
             // Implementation of SetProperty Method
+            //download gecko driver here: https://github.com/mozilla/geckodriver/releases
             System.setProperty(
                     "webdriver.gecko.driver",
                     "C:\\selenium\\geckodriver.exe");
@@ -104,7 +105,7 @@ public class Home {
     }
 
     public static void testGetTitle() {
-        // declaration and instantiation of objects/variables
+        //download gecko driver here: https://github.com/mozilla/geckodriver/releases
         System.setProperty("webdriver.gecko.driver", "C:\\selenium\\geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
         //comment the above 2 lines and uncomment below 2 lines to use Chrome
@@ -134,6 +135,7 @@ public class Home {
     }
 
     public static void testelementByID() {
+        //download gecko driver here: https://github.com/mozilla/geckodriver/releases
         System.setProperty("webdriver.gecko.driver", "C:\\selenium\\geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
         String baseUrl = "http://www.facebook.com";
@@ -145,13 +147,16 @@ public class Home {
         tagName = driver.findElement(By.id("email")).getTagName();
         System.out.println("TAG name:" + tagName);
 
+        //check tag type
         if (tagName.contentEquals(expectedTitle)) {
             System.out.println("Test Passed!");
         } else {
             System.out.println("Test Failed");
         }
 
+        //close browser
         driver.close();
+        //close application
         System.exit(0);
     }
 
